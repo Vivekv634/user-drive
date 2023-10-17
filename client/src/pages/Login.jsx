@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Input from '../components/Input';
 import axios from 'axios';
+import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
@@ -14,8 +15,7 @@ export default function Login() {
             { email, password },
             { headers: { 'Content-Type': 'application/json' } });
         if (response.data.userToken) {
-            const header = new Headers();
-            header.append('userTokenID', response.data.userToken);
+            Cookies.set('userTokenID', response.data.userToken, {expires: 1});
             navigate('/');
         } else if (response.data.error) {
             alert(response.data.error);

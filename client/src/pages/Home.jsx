@@ -1,19 +1,18 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import Cookies from 'js-cookie';
+import { Link } from 'react-router-dom';
+
 
 export default function Home() {
-    const [first, setFirst] = useState();
+    const [cookie, setCookie] = useState('');
     useEffect(() => {
-        const fetchData = async () => {
-            const response = await axios.get('http://localhost:5500/api/user/getData');
-            setFirst(response.data);
-            console.log(response.data);
-        }
-        fetchData();
+        setCookie(Cookies.get('userTokenID'));
     }, []);
     return (
-        <>
-            {first}
-        </>
-    )
+        <div className="home">
+            <div className="heading">Welcome to userDrive</div>
+            <div className="sub-heading">Get started with a simple signup</div>
+            {cookie ? <Link to='/about'>Go To Info</Link> : <Link to='/signup'>SignUp Here</Link>}
+      </div>
+  )
 }
