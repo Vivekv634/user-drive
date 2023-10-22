@@ -35,7 +35,9 @@ const loginUser = async (req, res) => {
                 const checkPassword = bcrypt.compare(password, userExists.password);
                 if (checkPassword) {
                     const token = jwt.sign({ userID: userExists._id }, process.env.TOKEN_KEY);
+                    res.cookie('userTokenID', token, { maxAge: 3600000 });
                     res.json({ userToken: token });
+                    // res.json({ success: "User Login Successfully" });
                 }
             } else {
                 return res.json({ error: "Please check your credentials" });

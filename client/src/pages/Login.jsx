@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../components/Input';
 import axios from 'axios';
 import Cookies from 'js-cookie';
@@ -9,18 +9,26 @@ export default function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    useEffect(() => {
+        if (Cookies.get('userTokenID')) {
+            navigate('/');
+        }
+
+    }, [navigate]);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await axios.post('http://localhost:5500/api/auth/login',
             { email, password },
             { headers: { 'Content-Type': 'application/json' } });
         if (response.data.userToken) {
-            Cookies.set('userTokenID', response.data.userToken, {expires: 1});
-            navigate('/');
+            Cookies.set('userTokenID', response.data.userToken, { expires: 1, secure: true });
+            window.location.reload();
         } else if (response.data.error) {
             alert(response.data.error);
         }
     }
+
     return (
         <div className="signup">
             <form onSubmit={handleSubmit}>

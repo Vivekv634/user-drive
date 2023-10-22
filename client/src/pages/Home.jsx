@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <div className="home">
             <div className="heading">Welcome to userDrive</div>
-            <div className="sub-heading">Get started with a simple signup</div>
+            {!cookie && <div className="sub-heading">Get started with a simple signup</div>}
             {cookie ? <Link to='/about'>Go To Info</Link> : <Link to='/signup'>SignUp Here</Link>}
       </div>
   )

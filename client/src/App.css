@@ -82,3 +82,59 @@
     border: 1px solid rgb(110, 119, 221);
     font-size: 1.2rem;
 }
+
+/* home css */
+
+.home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 90vh;
+    font-family: ubuntu;
+    font-size: 1.4rem;
+}
+
+/* about css */
+
+.about {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+}
+
+.about table {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+th {
+    font-family: ubuntu;
+    padding: 0.4rem;
+    background-color: #608b8f;
+}
+
+tr:nth-child(even) {
+    background-color: #98bbbe;
+}
+
+td {
+    text-align: center;
+    padding: .4rem;
+    font-family: poppins;
+}
+.about .links{
+    margin-top: 1rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.aboutLink{
+    text-decoration: none;
+    background-color: #608b8f;
+    color: aliceblue;
+    padding: 0.3rem;
+    border-radius: 4px;
+    font-family: quicksand;
+}

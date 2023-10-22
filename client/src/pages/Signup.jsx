@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../components/Input';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'js-cookie';
 
 export default function Signup() {
     const navigate = useNavigate();
@@ -9,6 +10,13 @@ export default function Signup() {
     const [lname, setLname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+    useEffect(() => {
+        if (Cookies.get('userTokenID')) {
+            navigate('/');
+        }
+
+    }, [navigate]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -21,6 +29,7 @@ export default function Signup() {
         }
         else if (response.data.error) alert(response.data.error);
     }
+    
     return (
         <div className="signup">
             <form onSubmit={handleSubmit}>

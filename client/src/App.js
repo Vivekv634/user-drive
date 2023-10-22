@@ -4,6 +4,9 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import About from './pages/About';
+import Edit from './pages/Edit';
+import PasswordChange from './pages/PasswordChange';
 
 function App() {
   return (
@@ -13,6 +16,9 @@ function App() {
         <Route exact path='/' element={<Home />} />
         <Route exact path='/login' element={<Login />} />
         <Route exact path='/signup' element={<Signup />} />
+        <Route exact path='/about' element={<About />} />
+        <Route exact path='/edit' element={<Edit />} />
+        <Route exact path='/changePassword' element={<PasswordChange />} />
       </Routes>
     </Router>
   );
