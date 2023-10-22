@@ -8,4 +8,6 @@ router.get('/getData', userAuth.authenticate, userControllers.getData);
 router.post('/updateData', userAuth.authenticate, userControllers.updateData);
 router.delete('/deleteData', userAuth.authenticate, userControllers.deleteData);
 
+router.post('/changePassword', userAuth.authenticate, userControllers.changePassword);
+
 module.exports = router;

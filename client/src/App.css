@@ -53,21 +53,22 @@
 
 /* signup css */
 .edit,
-.signup {
+.signup,
+.passwordChange {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
 }
 
 .edit h1,
-.signup h1 {
+.signup h1,
+.passwordChange h1 {
     display: flex;
     justify-content: center;
     font-family: ubuntu;
     margin-bottom: 0.8rem;
 }
-
-.edit input, .signup input {
+.edit input, .signup input, .passwordChange input {
     width: 100%;
     margin-bottom: 0.8rem;
     padding: 0.3rem;
@@ -76,9 +77,8 @@
     border: 1px solid rgba(0, 0, 0, 0.473);
 }
 
-.edit input[type='submit'], .signup input[type='submit'] {
+.passwordChange input[type='submit'], .edit input[type='submit'], .signup input[type='submit'] {
     font-family: quicksand;
-    font-weight: 500;
     background-color: #5760c0;
     color: aliceblue;
     border: 1px solid rgb(110, 119, 221);
