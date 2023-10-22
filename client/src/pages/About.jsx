@@ -5,7 +5,7 @@ import { useNavigate, Link } from 'react-router-dom';
 
 export default function About() {
     const [ID, setID] = useState('');
-    const [data, setdata] = useState('');
+    const [data, setdata] = useState({ fname: '', lname: '', email: '' });
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -17,15 +17,16 @@ export default function About() {
     }, [navigate]);
 
 
-    const fetchData = async () => {
-        const URI = `http://localhost:5500/api/user/getData?id=${ID}`;
-        const response = await axios.get(URI);
-        const result = response.data;
-        setdata(result);
-    }
     useEffect(() => {
+        const fetchData = async () => {
+            const URI = `http://localhost:5500/api/user/getData?id=${ID}`;
+            const response = await axios.get(URI);
+            const result = response.data.user;
+            const newData = { ...data, fname: result.fname, lname: result.lname, email: result.email };
+            setdata(newData);
+        }
         fetchData();
-    });
+    }, [ID, data]);
 
     return (
         <div className="about">
@@ -37,18 +38,15 @@ export default function About() {
                     </tr>
                     <tr>
                         <td>First Name</td>
-                        <td>First Name</td>
-                        {/* <td>{data.user.fname}</td> */}
+                        <td>{data.fname}</td>
                     </tr>
                     <tr>
                         <td>Last Name</td>
-                        <td>Last Name</td>
-                        {/* <td>{data.user.lname}</td> */}
+                        <td>{data.lname}</td>
                     </tr>
                     <tr>
                         <td>Email Address</td>
-                        <td>Email Address</td>
-                        {/* <td>{data.user.email}</td> */}
+                        <td>{data.email}</td>
                     </tr>
                 </table>
             </div>
