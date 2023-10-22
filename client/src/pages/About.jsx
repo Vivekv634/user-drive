@@ -4,8 +4,10 @@ import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function About() {
+    const [fname, setFname] = useState('');
+    const [lname, setLname] = useState('');
+    const [email, setEmail] = useState('');
     const [ID, setID] = useState('');
-    const [data, setdata] = useState({ fname: '', lname: '', email: '' });
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -22,34 +24,40 @@ export default function About() {
             const URI = `http://localhost:5500/api/user/getData?id=${ID}`;
             const response = await axios.get(URI);
             const result = response.data.user;
-            const newData = { ...data, fname: result.fname, lname: result.lname, email: result.email };
-            setdata(newData);
+            setFname(result.fname);
+            setLname(result.lname);
+            setEmail(result.email);
         }
         fetchData();
-    }, [ID, data]);
+    }, [ID]);
 
     return (
         <div className="about">
-            <div className="info">
-                <table>
-                    <tr>
-                        <th>Field</th>
-                        <th>Value</th>
-                    </tr>
-                    <tr>
-                        <td>First Name</td>
-                        <td>{data.fname}</td>
-                    </tr>
-                    <tr>
-                        <td>Last Name</td>
-                        <td>{data.lname}</td>
-                    </tr>
-                    <tr>
-                        <td>Email Address</td>
-                        <td>{data.email}</td>
-                    </tr>
-                </table>
-            </div>
+            {fname && lname && email ?
+                <div className="info">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Field</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>First Name</td>
+                                <td>{fname}</td>
+                            </tr>
+                            <tr>
+                                <td>Last Name</td>
+                                <td>{lname}</td>
+                            </tr>
+                            <tr>
+                                <td>Email Address</td>
+                                <td>{email}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> : <div className="fetching">fetching data...</div>}
             <div className="links">
                 <Link to='/edit' className='aboutLink'>Edit profile</Link>
                 <Link to='/changePassword' className='aboutLink'>Change Password</Link>

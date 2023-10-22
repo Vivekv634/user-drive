@@ -43,7 +43,7 @@ export default function Edit() {
     }
   }
   return (
-    <>
+    <div className='edit'>
       <form onSubmit={handleSubmit}>
         <h1>Edit Profile</h1>
         <div id="inputs">
@@ -53,6 +53,6 @@ export default function Edit() {
         </div>
         <input type="submit" value='Save Changes' />
       </form>
-    </>
+    </div>
   )
 }

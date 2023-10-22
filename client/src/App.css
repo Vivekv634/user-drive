@@ -52,12 +52,14 @@
 }
 
 /* signup css */
+.edit,
 .signup {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
 }
 
+.edit h1,
 .signup h1 {
     display: flex;
     justify-content: center;
@@ -65,7 +67,7 @@
     margin-bottom: 0.8rem;
 }
 
-.signup input {
+.edit input, .signup input {
     width: 100%;
     margin-bottom: 0.8rem;
     padding: 0.3rem;
@@ -74,7 +76,7 @@
     border: 1px solid rgba(0, 0, 0, 0.473);
 }
 
-.signup input[type='submit'] {
+.edit input[type='submit'], .signup input[type='submit'] {
     font-family: quicksand;
     font-weight: 500;
     background-color: #5760c0;
@@ -105,36 +107,63 @@
     align-items: center;
 }
 
-.about table {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-th {
-    font-family: ubuntu;
-    padding: 0.4rem;
-    background-color: #608b8f;
-}
-
-tr:nth-child(even) {
-    background-color: #98bbbe;
-}
-
-td {
-    text-align: center;
-    padding: .4rem;
-    font-family: poppins;
-}
-.about .links{
+.about .links {
     margin-top: 1rem;
     display: flex;
     gap: 1rem;
 }
 
-.aboutLink{
+.aboutLink {
     text-decoration: none;
     background-color: #608b8f;
     color: aliceblue;
     padding: 0.3rem;
     border-radius: 4px;
     font-family: quicksand;
+}
+
+.fetching {
+    font-family: quicksand;
+    font-weight: 500;
+}
+
+.about table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.about table thead tr {
+    background-color: #608b8f;
+    color: #ffffff;
+    text-align: center;
+    font-family: ubuntu;
+}
+
+.about table th,
+.about table td {
+    padding: 12px 15px;
+}
+
+.about table tbody tr {
+    border-bottom: 1px solid #dddddd;
+    font-family: poppins;
+    text-align: center;
+}
+
+.about table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.about table tbody tr:last-of-type {
+    border-bottom: 2px solid #608b8f;
+}
+
+/* edit css */
+.edit {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
 }
