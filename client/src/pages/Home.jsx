@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-
+import SecureServer from '../images/secure_server.svg';
 
 export default function Home() {
     const [cookie, setCookie] = useState('');
@@ -10,9 +10,15 @@ export default function Home() {
     }, []);
     return (
         <div className="home">
-            <div className="heading">Welcome to userDrive</div>
-            {!cookie && <div className="sub-heading">Get started with a simple signup</div>}
-            {cookie ? <Link to='/about'>Go To Info</Link> : <Link to='/signup'>SignUp Here</Link>}
-      </div>
-  )
+            <div className="home-content">
+                <div className="left">
+                    <div className="heading">Privacy First: Protecting Your User Data, Every Byte of the Way</div>
+                    <div className="sub-heading">User Data Security Service</div>
+                    <div className="home-link">
+                        {cookie ? <Link to='/about' className='link'>Go To DashBoard</Link> : <Link to='/signup' className='link'>Get Started</Link>}</div>
+                </div>
+                <div className="right"><img src={SecureServer} alt="" /></div>
+            </div>
+        </div>
+    )
 }
