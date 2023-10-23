@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Input from '../components/Input';
 import axios from 'axios';
 import Cookies from 'js-cookie';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import LoginImage from '../images/login.svg';
 
 export default function Login() {
     const navigate = useNavigate();
@@ -30,15 +31,19 @@ export default function Login() {
     }
 
     return (
-        <div className="signup">
-            <form onSubmit={handleSubmit}>
-                <h1>User Login Form</h1>
-                <div id="inputs">
-                    <Input id='email' label='Email Address' type='email' value={email} handleValue={setEmail} required={true} />
-                    <Input id='password' label='Password' type='password' value={password} handleValue={setPassword} required={true} />
+        <div className="login">
+            <div className="login-content">
+                <div className="left"><img src={LoginImage} alt="" /></div>
+                <div className="right">
+                    <form onSubmit={handleSubmit} >
+                        <h1>User Login Form</h1>
+                        <Input id='email' label='Email Address' type='email' value={email} handleValue={setEmail} required={true} />
+                        <Input id='password' label='Password' type='password' value={password} handleValue={setPassword} required={true} />
+                        <input type="submit" value="Login" />
+                        <div className="signup-link">Don't have an account?<Link to='/signup'>Create Here</Link></div>
+                    </form>
                 </div>
-                <input type="submit" value="Login" />
-            </form>
+            </div>
         </div>
     )
 }
