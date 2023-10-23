@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import Input from '../components/Input';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import SignupImage from '../images/signup.svg';
+
 
 export default function Signup() {
     const navigate = useNavigate();
@@ -29,19 +31,25 @@ export default function Signup() {
         }
         else if (response.data.error) alert(response.data.error);
     }
-    
+
     return (
         <div className="signup">
-            <form onSubmit={handleSubmit}>
-                <h1>User Registration Form</h1>
-                <div id="inputs">
-                    <Input id='fname' label='First Name' type='text' value={fname} handleValue={setFname} required={true} />
-                    <Input id='lname' label='Last Name' type='text' value={lname} handleValue={setLname} required={true} />
-                    <Input id='email' label='Email Address' type='email' value={email} handleValue={setEmail} required={true} />
-                    <Input id='password' label='Password' type='password' value={password} handleValue={setPassword} required={true} />
+            <div className="signup-content">
+                <div className="left">
+                    <img src={SignupImage} alt="signup" />
                 </div>
-                <input type="submit" value="Register" />
-            </form>
+                <div className="right">
+                    <form onSubmit={handleSubmit}>
+                        <h1>User Registration Form</h1>
+                        <Input id='fname' label='First Name' type='text' value={fname} handleValue={setFname} required={true} />
+                        <Input id='lname' label='Last Name' type='text' value={lname} handleValue={setLname} required={true} />
+                        <Input id='email' label='Email Address' type='email' value={email} handleValue={setEmail} required={true} />
+                        <Input id='password' label='Password' type='password' value={password} handleValue={setPassword} required={true} />
+                        <input type="submit" value="Register" />
+                        <div className="login-link">Already have an account?<Link to='/login'>Login Here</Link></div>
+                    </form>
+                </div>
+            </div>
         </div>
     )
 }
