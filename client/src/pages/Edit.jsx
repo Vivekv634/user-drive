@@ -9,6 +9,8 @@ export default function Edit() {
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
   const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
+  const [disable, setDisable] = useState(true);
   const [ID, setID] = useState('');
   const navigate = useNavigate();
 
@@ -42,6 +44,16 @@ export default function Edit() {
       navigate('/about');
     }
   }
+
+  useEffect(() => {
+    if (/^[a-zA-Z ]*$/.test(fname) && /^[a-zA-Z ]*$/.test(lname)) {
+      setError('');
+      setDisable(false);
+    } else {
+      setError('Name can\'t contain special characters')
+    }
+  }, [fname, lname]);
+
   return (
     <div className='edit'>
       <div className="edit-content">
@@ -52,7 +64,8 @@ export default function Edit() {
             <Input id='fname' label='First Name' type='text' value={fname} handleValue={setFname} required={false} />
             <Input id='lname' label='Last Name' type='text' value={lname} handleValue={setLname} required={false} />
             <Input id='email' label='Email Address' type='email' value={email} handleValue={setEmail} required={false} />
-            <input type="submit" value='Save Changes' />
+            <div className="error">{error}</div>
+            <input type="submit" value='Save Changes' disabled={disable} />
           </form>
         </div>
       </div>

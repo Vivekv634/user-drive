@@ -12,12 +12,13 @@ export default function Signup() {
     const [lname, setLname] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [disable, setDisable] = useState(true);
 
     useEffect(() => {
         if (Cookies.get('userTokenID')) {
             navigate('/');
         }
-
     }, [navigate]);
 
     const handleSubmit = async (e) => {
@@ -29,8 +30,27 @@ export default function Signup() {
             alert(response.data.success);
             navigate('/login');
         }
-        else if (response.data.error) alert(response.data.error);
+        else if (response.data.error) {
+            setFname('');
+            setLname('');
+            setEmail('');
+            setPassword('');
+            alert(response.data.error);
+        }
     }
+
+    useEffect(() => {
+        if (/^[a-zA-Z ]*$/.test(fname) && /^[a-zA-Z ]*$/.test(lname)) {
+            setError('');
+            setDisable(false);
+        } else {
+            setError('Name can\'t contain special characters')
+        }
+
+        if (password !== '' && password.length < 8) {
+            setError('Password must be of 8 characters long');
+        }
+    }, [fname, lname, password]);
 
     return (
         <div className="signup">
@@ -45,7 +65,8 @@ export default function Signup() {
                         <Input id='lname' label='Last Name' type='text' value={lname} handleValue={setLname} required={true} />
                         <Input id='email' label='Email Address' type='email' value={email} handleValue={setEmail} required={true} />
                         <Input id='password' label='Password' type='password' value={password} handleValue={setPassword} required={true} />
-                        <input type="submit" value="Register" />
+                        <div className="error">{error}</div>
+                        <input type="submit" value="Register" disabled={disable} />
                         <div className="login-link">Already have an account?<Link to='/login'>Login Here</Link></div>
                     </form>
                 </div>

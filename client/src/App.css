@@ -58,6 +58,7 @@ body {
     font-family: poppins;
     font-size: 1.1rem;
     width: 100%;
+    padding-left: .4rem;
 }
 
 /* home css */
@@ -186,6 +187,18 @@ body {
     margin-top: 1rem;
     font-size: 1.1rem;
     width: 100%;
+}
+
+.signup-content input[type=submit]:disabled {
+    cursor: not-allowed;
+    background-color: #8286b3;
+}
+
+.signup-content .error {
+    height: 2ch;
+    color: red;
+    padding: 5px 0;
+    font-family: poppins;
 }
 
 .signup-content .login-link {
@@ -434,6 +447,17 @@ body {
     font-size: 1.1rem;
     width: 100%;
 }
+.edit-content input[type=submit]:disabled {
+    cursor: not-allowed;
+    background-color: #8286b3;
+}
+
+.edit-content .error {
+    height: 2ch;
+    color: red;
+    padding: 5px 0;
+    font-family: poppins;
+}
 
 .edit-content .signup-link {
     display: flex;
@@ -571,13 +595,14 @@ body {
 }
 
 /* page not found css */
-.page-not-found{
+.page-not-found {
     display: flex;
     align-items: center;
     flex-direction: column;
     font-family: poppins;
     margin: 3rem 0;
 }
-.page-not-found img{
+
+.page-not-found img {
     width: 300px;
 }
