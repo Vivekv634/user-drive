@@ -1,8 +1,9 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Input from '../components/Input';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { useNavigate } from 'react-router-dom';
+import PasswordImage from '../images/password.svg';
 
 export default function PasswordChange() {
   const [ID, setID] = useState('');
@@ -34,13 +35,18 @@ export default function PasswordChange() {
 
   return (
     <div className="passwordChange">
-      <form onSubmit={handleSubmit}>
-      <h1>Change Password</h1>
-        <Input id='oldPassword' label='Old Password' type='password' value={oldPassword} handleValue={setOldPassword} required={true} />
-        <Input id='newPassword' label='New Password' type='password' value={newPassword} handleValue={setNewPassword} required={true} />
-        <Input id='cPassword' label='Confirm New Password' type='password' value={cPassword} handleValue={setCPassword} required={true} />
-        <input type="submit" value="Change Password" />
-      </form>
+      <div className="passwordChange-content">
+        <div className="left"><img src={PasswordImage} alt="" /></div>
+        <div className="right">
+          <form onSubmit={handleSubmit}>
+            <h1>Change Password</h1>
+            <Input id='oldPassword' label='Old Password' type='password' value={oldPassword} handleValue={setOldPassword} required={true} />
+            <Input id='newPassword' label='New Password' type='password' value={newPassword} handleValue={setNewPassword} required={true} />
+            <Input id='cPassword' label='Confirm New Password' type='password' value={cPassword} handleValue={setCPassword} required={true} />
+            <input type="submit" value="Change Password" />
+          </form>
+        </div>
+      </div>
     </div>
   )
 }

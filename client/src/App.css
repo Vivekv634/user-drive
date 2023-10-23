@@ -60,43 +60,7 @@ body {
     width: 100%;
 }
 
-/* signup css */
-.edit,
-.passwordChange {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-}
-
-.edit h1,
-.passwordChange h1 {
-    display: flex;
-    justify-content: center;
-    font-family: ubuntu;
-    margin-bottom: 0.8rem;
-}
-
-.edit input,
-.passwordChange input {
-    width: 100%;
-    margin-bottom: 0.8rem;
-    padding: 0.3rem;
-    border-radius: .2rem;
-    outline: none;
-    border: 1px solid rgba(0, 0, 0, 0.473);
-}
-
-.passwordChange input[type='submit'],
-.edit input[type='submit'] {
-    font-family: quicksand;
-    background-color: #5760c0;
-    color: aliceblue;
-    border: 1px solid rgb(110, 119, 221);
-    font-size: 1.2rem;
-}
-
 /* home css */
-
 .home {
     display: flex;
     justify-content: space-between;
@@ -438,7 +402,8 @@ body {
     box-shadow: 0 6px 8px 1px rgba(65, 65, 65, 0.529);
     width: 80%;
 }
-.edit-content .right{
+
+.edit-content .right {
     width: 40%;
 }
 
@@ -498,7 +463,8 @@ body {
         margin-top: 0;
     }
 
-        .edit-content .right, .edit-content .left {
+    .edit-content .right,
+    .edit-content .left {
         width: 100%;
     }
 
@@ -513,4 +479,105 @@ body {
     .edit-content .right h1 {
         text-align: center;
     }
+}
+
+/* password change css */
+.passwordChange {
+    display: flex;
+    justify-content: center;
+    margin: 3rem 0;
+}
+
+.passwordChange-content {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 3rem;
+    box-shadow: 0 6px 8px 1px rgba(65, 65, 65, 0.529);
+    width: 80%;
+}
+
+.passwordChange-content .left {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.passwordChange-content .left img {
+    width: 400px;
+}
+
+.passwordChange-content .right h1 {
+    font-family: jost;
+}
+
+.passwordChange-content input[type=submit] {
+    font-family: quicksand;
+    color: white;
+    background-color: #5760c0;
+    outline: none;
+    border: 1px solid #5760c0;
+    padding: .4rem;
+    border-radius: 3px;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.passwordChange-content .signup-link {
+    display: flex;
+    justify-content: center;
+    margin-top: .8rem;
+    font-size: .9rem;
+    font-family: poppins;
+}
+
+@media screen and (max-width:1040px) {
+    .passwordChange-content {
+        width: 90%;
+    }
+
+    .passwordChange-content .left img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width:790px) {
+    .passwordChange-content {
+        width: 100%;
+        display: block;
+    }
+
+    .passwordChange {
+        margin-top: 0;
+    }
+
+    .passwordChange-content .left {
+        width: 100%;
+    }
+
+    .passwordChange-content .left img {
+        width: 350px;
+    }
+
+    .passwordChange-content .right form {
+        width: 100%;
+    }
+
+    .passwordChange-content .right h1 {
+        text-align: center;
+    }
+}
+
+/* page not found css */
+.page-not-found{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: poppins;
+    margin: 3rem 0;
+}
+.page-not-found img{
+    width: 300px;
 }

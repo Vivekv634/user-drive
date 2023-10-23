@@ -7,6 +7,7 @@ import Signup from './pages/Signup';
 import About from './pages/About';
 import Edit from './pages/Edit';
 import PasswordChange from './pages/PasswordChange';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route exact path='/about' element={<About />} />
         <Route exact path='/edit' element={<Edit />} />
         <Route exact path='/changePassword' element={<PasswordChange />} />
+        <Route path='*' element={<PageNotFound />} />
       </Routes>
     </Router>
   );
