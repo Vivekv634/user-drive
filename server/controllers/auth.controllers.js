@@ -6,7 +6,7 @@ const jwt = require('jsonwebtoken');
 
 
 const registerUser = async (req, res) => {
-    const { fname, lname, email, password } = req.body;
+    const { name, bio, address, email, password } = req.body;
     try {
         if (validator.validate(email)) {
             const userExists = await User.findOne({ email });
@@ -14,7 +14,7 @@ const registerUser = async (req, res) => {
                 return res.json({ error: "Please check your credentials" });
             } else {
                 const hashedPassword = await bcrypt.hash(password, 10);
-                const newUser = new User({ fname, lname, email, password: hashedPassword });
+                const newUser = new User({ name, bio, address, email, password: hashedPassword });
                 await newUser.save();
                 return res.json({ success: "You have been registered successfully! Now Login!" });
             }
@@ -37,7 +37,6 @@ const loginUser = async (req, res) => {
                     const token = jwt.sign({ userID: userExists._id }, process.env.TOKEN_KEY);
                     res.cookie('userTokenID', token, { maxAge: 3600000 });
                     res.json({ userToken: token });
-                    // res.json({ success: "User Login Successfully" });
                 }
             } else {
                 return res.json({ error: "Please check your credentials" });
