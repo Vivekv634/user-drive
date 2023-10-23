@@ -427,5 +427,90 @@ body {
 .edit {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin: 3rem 0;
+}
+
+.edit-content {
+    display: flex;
+    justify-content: space-between;
+    background-color: #fff;
+    padding: 3rem;
+    box-shadow: 0 6px 8px 1px rgba(65, 65, 65, 0.529);
+    width: 80%;
+}
+.edit-content .right{
+    width: 40%;
+}
+
+.edit-content .left {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit-content .left img {
+    width: 300px;
+}
+
+.edit-content .right h1 {
+    font-family: jost;
+}
+
+.edit-content input[type=submit] {
+    font-family: quicksand;
+    color: white;
+    background-color: #5760c0;
+    outline: none;
+    border: 1px solid #5760c0;
+    padding: .4rem;
+    border-radius: 3px;
+    margin-top: 1rem;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+.edit-content .signup-link {
+    display: flex;
+    justify-content: center;
+    margin-top: .8rem;
+    font-size: .9rem;
+    font-family: poppins;
+}
+
+@media screen and (max-width:1040px) {
+    .edit-content {
+        width: 90%;
+    }
+
+    .edit-content .left img {
+        width: 300px;
+    }
+}
+
+@media screen and (max-width:800px) {
+    .edit-content {
+        width: 100%;
+        display: block;
+    }
+
+    .edit {
+        margin-top: 0;
+    }
+
+        .edit-content .right, .edit-content .left {
+        width: 100%;
+    }
+
+    .edit-content .left img {
+        width: 350px;
+    }
+
+    .edit-content .right form {
+        width: 100%;
+    }
+
+    .edit-content .right h1 {
+        text-align: center;
+    }
 }

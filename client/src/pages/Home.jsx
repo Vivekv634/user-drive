@@ -12,7 +12,7 @@ export default function Home() {
         <div className="home">
             <div className="home-content">
                 <div className="left">
-                    <div className="heading">Privacy First: Protecting Your User Data, Every Byte of the Way</div>
+                    <div className="heading">Privacy First: Protecting Your Data, Every Byte of the Way</div>
                     <div className="sub-heading">User Data Security Service</div>
                     <div className="home-link">
                         {cookie ? <Link to='/about' className='link'>Go To DashBoard</Link> : <Link to='/signup' className='link'>Get Started</Link>}</div>
