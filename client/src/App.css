@@ -337,41 +337,49 @@ body {
 }
 
 /* about css */
-
 .about {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin: 3rem 0;
+}
+
+.about-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem;
+    background-color: white;
+    box-shadow: 0 6px 8px 1px rgba(65, 65, 65, .5);
+}
+
+.left {
+    width: 45%;
+    margin-right: 1rem;
+}
+
+.left img {
+    width: 150px;
+    display: flex;
+    margin: auto;
+}
+
+.about-links {
+    display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.about .links {
-    margin-top: 1rem;
-    display: flex;
-    gap: 1rem;
-}
-
-.aboutLink {
-    text-decoration: none;
-    background-color: #608b8f;
-    color: aliceblue;
-    padding: 0.3rem;
-    border-radius: 4px;
+    margin-top: .6rem;
     font-family: quicksand;
+    font-weight: 600;
 }
-
-.fetching {
-    font-family: quicksand;
-    font-weight: 500;
+#delete-profile-btn{
+    color: red;
 }
-
 .about table {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 8px 1px rgba(65, 65, 65, .5);
+    border-radius: 5px;
 }
 
 .about table thead tr {
@@ -395,11 +403,10 @@ body {
 .about table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
-
+/* 
 .about table tbody tr:last-of-type {
     border-bottom: 2px solid #608b8f;
-}
-
+} */
 /* edit css */
 .edit {
     display: flex;
@@ -447,6 +454,7 @@ body {
     font-size: 1.1rem;
     width: 100%;
 }
+
 .edit-content input[type=submit]:disabled {
     cursor: not-allowed;
     background-color: #8286b3;

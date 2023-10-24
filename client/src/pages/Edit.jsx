@@ -37,7 +37,7 @@ export default function Edit() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const URI = `http://localhost:5500/api/user/updateData?id=${ID}`;
-    const response = await axios.post(URI, { fname, lname, email });
+    const response = await axios.post(URI, { fname, lname });
     const result = response.data;
     if (result.success) {
       alert(result.success);
@@ -63,7 +63,6 @@ export default function Edit() {
             <h1>Edit Profile</h1>
             <Input id='fname' label='First Name' type='text' value={fname} handleValue={setFname} required={false} />
             <Input id='lname' label='Last Name' type='text' value={lname} handleValue={setLname} required={false} />
-            <Input id='email' label='Email Address' type='email' value={email} handleValue={setEmail} required={false} />
             <div className="error">{error}</div>
             <input type="submit" value='Save Changes' disabled={disable} />
           </form>

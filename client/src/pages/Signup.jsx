@@ -47,8 +47,15 @@ export default function Signup() {
             setError('Name can\'t contain special characters')
         }
 
-        if (password !== '' && password.length < 8) {
-            setError('Password must be of 8 characters long');
+        if (password !== '') {
+            if (password.length < 8) {
+                setError('Password must be of 8 characters long');
+                setDisable(true);
+            } else {
+                setDisable(false);
+            }
+        } else {
+            setDisable(true);
         }
     }, [fname, lname, password]);
 

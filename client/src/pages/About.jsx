@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
+import ProfileImage from '../images/profile.svg';
 
 export default function About() {
     const [fname, setFname] = useState('');
@@ -31,17 +32,31 @@ export default function About() {
         fetchData();
     }, [ID]);
 
+    const handleDeleteProfile = async () => {
+        const confirmation = window.confirm("Are you sure you want to delete your account?");
+        if (confirmation) {
+            const response = await axios.delete(`http://localhost:5500/api/user/deleteData?id=${ID}`);
+            const result = response.data;
+            if (result.success) {
+                alert(result.success);
+                Cookies.remove('userTokenID');
+                navigate('/');
+            }
+        }
+    }
     return (
         <div className="about">
-            {fname && lname && email ?
-                <div className="info">
+            <div className="about-content">
+                <div className="left">
+                    <img src={ProfileImage} alt="" />
+                    <div className="about-links">
+                        <Link to='/edit'>Edit Profile</Link>
+                        <Link to='/changepassword'>Change Password</Link>
+                        <Link id='delete-profile-btn' onClick={handleDeleteProfile}>Delete Profile</Link>
+                    </div>
+                </div>
+                <div className="right">
                     <table>
-                        <thead>
-                            <tr>
-                                <th>Field</th>
-                                <th>Value</th>
-                            </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <td>First Name</td>
@@ -57,10 +72,7 @@ export default function About() {
                             </tr>
                         </tbody>
                     </table>
-                </div> : <div className="fetching">fetching data...</div>}
-            <div className="links">
-                <Link to='/edit' className='aboutLink'>Edit profile</Link>
-                <Link to='/changePassword' className='aboutLink'>Change Password</Link>
+                </div>
             </div>
         </div>
     )

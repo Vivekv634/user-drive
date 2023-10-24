@@ -7,8 +7,8 @@ const getData = async (req, res) => {
 }
 
 const updateData = async (req, res) => {
-    const { fname, lname, email } = req.body;
-    await User.findByIdAndUpdate(req.userID, { fname, lname, email });
+    const { fname, lname } = req.body;
+    await User.findByIdAndUpdate(req.userID, { fname, lname });
     res.json({ success: "Data Updated successfully!" });
 }
 
