@@ -380,7 +380,7 @@ body {
     margin: 25px 0;
     font-size: 0.9em;
     min-width: 400px;
-    box-shadow: 0 6px 8px 1px rgba(65, 65, 65, .5);
+    box-shadow: 0 4px 15px 1px rgba(65, 65, 65, .5);
     border-radius: 5px;
 }
 
@@ -406,10 +406,6 @@ body {
     background-color: #f3f3f3;
 }
 
-/* 
-.about table tbody tr:last-of-type {
-    border-bottom: 2px solid #608b8f;
-} */
 /* edit css */
 .edit {
     display: flex;

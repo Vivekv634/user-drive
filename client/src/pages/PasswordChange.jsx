@@ -28,10 +28,14 @@ export default function PasswordChange() {
     const result = response.data;
     if (result.error) {
       alert(result.error);
+      setOldPassword('');
+      setNewPassword('');
+      setCPassword('');
     }
     if (result.success) {
       alert(result.success);
-      navigate('/about');
+      Cookies.remove('userTokenID');
+      window.location.reload();
     }
   }
 

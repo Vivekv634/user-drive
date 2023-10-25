@@ -21,11 +21,11 @@ const changePassword = async (req, res) => {
     const { oldPassword, newPassword } = req.body;
     const existedUser = await User.findById(req.userID);
     if (existedUser) {
-        const checkPassword = bcrypt.compare(oldPassword, existedUser.password);
+        const checkPassword = await bcrypt.compare(oldPassword, existedUser.password);
         if (checkPassword) {
             const hashedPassword = await bcrypt.hash(newPassword, 10);
             await User.findByIdAndUpdate(req.userID, { password: hashedPassword });
-            res.json({ success: "Password Updated Successfully!" });
+            res.json({ success: "Password Updated Successfully!, Now Login Again" });
         } else {
             res.json({ error: "Old Password Doesn\'t match" });
         }
