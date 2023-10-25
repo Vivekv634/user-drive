@@ -42,7 +42,6 @@ export default function Login() {
                         <Input id='email' label='Email Address' type='email' value={email} handleValue={setEmail} required={true} />
                         <Input id='password' label='Password' type='password' value={password} handleValue={setPassword} required={true} />
                         <input type="submit" value="Login" />
-                        <div className="signup-link forget-password"><Link to='/forgetPassword'>Forget Password?</Link></div>
                         <div className="signup-link">Don't have an account?<Link to='/signup'>Create Here</Link></div>
                     </form>
                 </div>

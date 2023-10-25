@@ -8,7 +8,6 @@ import About from './pages/About';
 import Edit from './pages/Edit';
 import PasswordChange from './pages/PasswordChange';
 import PageNotFound from './pages/PageNotFound';
-import ForgetPassword from './pages/ForgetPassword';
 import { userDataContext } from './Context/userDataContext';
 import { useState } from 'react';
 
@@ -27,7 +26,6 @@ function App() {
           <Route exact path='/about' element={<About />} />
           <Route exact path='/edit' element={<Edit />} />
           <Route exact path='/changePassword' element={<PasswordChange />} />
-          <Route exact path='/forgetPassword' element={<ForgetPassword />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>

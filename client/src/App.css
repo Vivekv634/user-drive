@@ -299,10 +299,6 @@ body {
     font-family: poppins;
 }
 
-.forget-password{
-    margin-left:0;
-}
-
 @media screen and (max-width:1040px) {
     .login-content {
         width: 90%;
