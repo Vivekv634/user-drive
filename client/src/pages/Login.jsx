@@ -27,6 +27,8 @@ export default function Login() {
             window.location.reload();
         } else if (response.data.error) {
             alert(response.data.error);
+            setEmail('');
+            setPassword('');
         }
     }
 

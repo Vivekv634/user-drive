@@ -32,11 +32,13 @@ const loginUser = async (req, res) => {
         if (validator.validate(email)) {
             const userExists = await User.findOne({ email });
             if (userExists) {
-                const checkPassword = bcrypt.compare(password, userExists.password);
+                const checkPassword = await bcrypt.compare(password, userExists.password);
                 if (checkPassword) {
                     const token = jwt.sign({ userID: userExists._id }, process.env.TOKEN_KEY);
                     res.cookie('userTokenID', token, { maxAge: 3600000 });
                     res.json({ userToken: token });
+                } else {
+                    return res.json({ error: "Please check your credentials" });
                 }
             } else {
                 return res.json({ error: "Please check your credentials" });

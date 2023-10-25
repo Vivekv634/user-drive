@@ -6,9 +6,6 @@ import ProfileImage from '../images/profile.svg';
 import { userDataContext } from '../Context/userDataContext';
 
 export default function About() {
-    // const [fname, setFname] = useState('');
-    // const [lname, setLname] = useState('');
-    // const [email, setEmail] = useState('');
     const { fname, setFname, lname, setLname, email, setEmail } = useContext(userDataContext);
     const [ID, setID] = useState('');
     const navigate = useNavigate();
