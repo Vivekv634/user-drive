@@ -45,34 +45,35 @@ export default function About() {
     }
     return (
         <div className="about">
-            <div className="about-content">
-                <div className="left">
-                    <img src={ProfileImage} alt="" />
-                    <div className="about-links">
-                        <Link to='/edit'>Edit Profile</Link>
-                        <Link to='/changepassword'>Change Password</Link>
-                        <Link id='delete-profile-btn' onClick={handleDeleteProfile}>Delete Profile</Link>
+                <div className="about-content">
+                    <div className="left">
+                        <img src={ProfileImage} alt="" />
+                        <div className="about-links">
+                            <Link to='/edit'>Edit Profile</Link>
+                            <Link to='/changepassword'>Change Password</Link>
+                            <Link id='delete-profile-btn' onClick={handleDeleteProfile}>Delete Profile</Link>
+                        </div>
+                    </div>
+                    <div className="right">
+
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>First Name</td>
+                                    <td>{fname}</td>
+                                </tr>
+                                <tr>
+                                    <td>Last Name</td>
+                                    <td>{lname}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email Address</td>
+                                    <td>{email}</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <div className="right">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td>First Name</td>
-                                <td>{fname}</td>
-                            </tr>
-                            <tr>
-                                <td>Last Name</td>
-                                <td>{lname}</td>
-                            </tr>
-                            <tr>
-                                <td>Email Address</td>
-                                <td>{email}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
         </div>
     )
 }
