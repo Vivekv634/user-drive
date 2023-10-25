@@ -1,17 +1,20 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import Input from '../components/Input';
 import axios from 'axios';
 import EditImage from '../images/edit.svg';
+import { userDataContext } from '../Context/userDataContext';
 
 export default function Edit() {
-  const [fname, setFname] = useState('');
-  const [lname, setLname] = useState('');
+  // const [fname, setFname] = useState('');
+  // const [lname, setLname] = useState('');
   const [error, setError] = useState('');
   const [disable, setDisable] = useState(true);
   const [ID, setID] = useState('');
   const navigate = useNavigate();
+  const { fname, setFname, lname, setLname } = useContext(userDataContext);
+
 
   useEffect(() => {
     if (Cookies.get('userTokenID')) {
@@ -20,17 +23,6 @@ export default function Edit() {
       navigate('/login');
     }
   }, [navigate]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const URI = `http://localhost:5500/api/user/getData?id=${ID}`;
-      const response = await axios.get(URI);
-      const result = response.data;
-      setFname(result.user.fname);
-      setLname(result.user.lname);
-    }
-    fetchData();
-  }, [ID]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

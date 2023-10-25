@@ -1,13 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import ProfileImage from '../images/profile.svg';
+import { userDataContext } from '../Context/userDataContext';
 
 export default function About() {
-    const [fname, setFname] = useState('');
-    const [lname, setLname] = useState('');
-    const [email, setEmail] = useState('');
+    // const [fname, setFname] = useState('');
+    // const [lname, setLname] = useState('');
+    // const [email, setEmail] = useState('');
+    const { fname, setFname, lname, setLname, email, setEmail } = useContext(userDataContext);
     const [ID, setID] = useState('');
     const navigate = useNavigate();
 
@@ -30,7 +32,7 @@ export default function About() {
             setEmail(result.email);
         }
         fetchData();
-    }, [ID]);
+    });
 
     const handleDeleteProfile = async () => {
         const confirmation = window.confirm("Are you sure you want to delete your account?");
