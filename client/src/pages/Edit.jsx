@@ -8,7 +8,6 @@ import EditImage from '../images/edit.svg';
 export default function Edit() {
   const [fname, setFname] = useState('');
   const [lname, setLname] = useState('');
-  const [email, setEmail] = useState('');
   const [error, setError] = useState('');
   const [disable, setDisable] = useState(true);
   const [ID, setID] = useState('');
@@ -29,7 +28,6 @@ export default function Edit() {
       const result = response.data;
       setFname(result.user.fname);
       setLname(result.user.lname);
-      setEmail(result.user.email);
     }
     fetchData();
   }, [ID]);

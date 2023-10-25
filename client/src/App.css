@@ -295,8 +295,12 @@ body {
     display: flex;
     justify-content: center;
     margin-top: .8rem;
-    font-size: .9rem;
+    font-size: .8rem;
     font-family: poppins;
+}
+
+.forget-password{
+    margin-left:0;
 }
 
 @media screen and (max-width:1040px) {
@@ -370,9 +374,11 @@ body {
     font-family: quicksand;
     font-weight: 600;
 }
-#delete-profile-btn{
+
+#delete-profile-btn {
     color: red;
 }
+
 .about table {
     border-collapse: collapse;
     margin: 25px 0;
@@ -403,6 +409,7 @@ body {
 .about table tbody tr:nth-of-type(even) {
     background-color: #f3f3f3;
 }
+
 /* 
 .about table tbody tr:last-of-type {
     border-bottom: 2px solid #608b8f;
@@ -555,6 +562,19 @@ body {
     margin-top: 1rem;
     font-size: 1.1rem;
     width: 100%;
+}
+
+.passwordChange-content input[type=submit]:disabled {
+    cursor: not-allowed;
+    background-color: #8286b3;
+}
+
+.passwordChange-content .error {
+    height: 2ch;
+    color: red;
+    padding: 5px 0;
+    font-family: poppins;
+    font-size: .9rem;
 }
 
 .passwordChange-content .signup-link {

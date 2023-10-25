@@ -10,6 +10,8 @@ export default function PasswordChange() {
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [cPassword, setCPassword] = useState('');
+  const [error, setError] = useState('');
+  const [disable, setDisable] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -33,6 +35,33 @@ export default function PasswordChange() {
     }
   }
 
+  useEffect(() => {
+    if (newPassword !== '') {
+      if (newPassword.length < 8) {
+        setError('Password must be of 8 letters long');
+        setDisable(true);
+      } else {
+        setDisable(false);
+        setError('');
+      }
+    } else {
+      setDisable(true);
+      setError('');
+    }
+    if (newPassword.length && cPassword.length) {
+      if (newPassword !== cPassword) {
+        setError('Password must be same');
+        setDisable(true);
+      } else {
+        setDisable(false);
+        setError('');
+      }
+    } else {
+      setDisable(true);
+    }
+
+  }, [newPassword, cPassword]);
+
   return (
     <div className="passwordChange">
       <div className="passwordChange-content">
@@ -43,7 +72,8 @@ export default function PasswordChange() {
             <Input id='oldPassword' label='Old Password' type='password' value={oldPassword} handleValue={setOldPassword} required={true} />
             <Input id='newPassword' label='New Password' type='password' value={newPassword} handleValue={setNewPassword} required={true} />
             <Input id='cPassword' label='Confirm New Password' type='password' value={cPassword} handleValue={setCPassword} required={true} />
-            <input type="submit" value="Change Password" />
+            <div className="error">{error}</div>
+            <input type="submit" value="Change Password" disabled={disable} />
           </form>
         </div>
       </div>
