@@ -7,8 +7,6 @@ import EditImage from '../images/edit.svg';
 import { userDataContext } from '../Context/userDataContext';
 
 export default function Edit() {
-  // const [fname, setFname] = useState('');
-  // const [lname, setLname] = useState('');
   const [error, setError] = useState('');
   const [disable, setDisable] = useState(true);
   const [ID, setID] = useState('');
@@ -31,7 +29,7 @@ export default function Edit() {
     const result = response.data;
     if (result.success) {
       alert(result.success);
-      navigate('/about');
+      navigate('/dashboard');
     }
   }
 

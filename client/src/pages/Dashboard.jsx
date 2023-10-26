@@ -23,7 +23,7 @@ export default function About() {
         const fetchData = async () => {
             const URI = `http://localhost:5500/api/user/getData?id=${ID}`;
             const response = await axios.get(URI);
-            const result = response.data.user;
+            const result = await response.data.user;
             setFname(result.fname);
             setLname(result.lname);
             setEmail(result.email);
