@@ -1,5 +1,5 @@
 ## userDrive
-userDrive is a user data security service that allows you to store data in the cloud database.
+userDrive is a user data security and management service that allows you to store data in the database.
 <br>
 Note: This is a sample project to demonstrate how data is stored successfully.
 
@@ -11,10 +11,9 @@ Since it is a MERN Stack Web Application, it uses:
 
 ## 🪄 Technologies/Languages used
 <p float="left">
-<img height="32" width="32" src="https://cdn.simpleicons.org/react/" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img height="32" width="32" src="https://cdn.simpleicons.org/express/" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img height="32" width="32" src="https://cdn.simpleicons.org/mongodb/" />&nbsp;&nbsp;&nbsp;&nbsp;
-<img height="32" width="32" src="https://cdn.simpleicons.org/npm/" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img height="32" width="32" src="https://cdn.simpleicons.org/express/" />&nbsp;&nbsp;&nbsp;&nbsp;
+<img height="32" width="32" src="https://cdn.simpleicons.org/react/" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img height="32" width="32" src="https://cdn.simpleicons.org/node.js/" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img height="32" width="32" src="https://cdn.simpleicons.org/jsonwebtokens/" />&nbsp;&nbsp;&nbsp;&nbsp;
 <img height="32" width="32" src="https://cdn.simpleicons.org/css3/" />&nbsp;&nbsp;&nbsp;&nbsp;
@@ -22,7 +21,7 @@ Since it is a MERN Stack Web Application, it uses:
 
 ## 🛠️ How to begin
 At the very first step, clone this repository to your system and after that follow the below steps:
-* Create a new file in the server folder and name it as ```.env```. This is an environment variable file that holds some essential data.
+* Create a new file in the server folder where ```index.js``` file stored and name it as ```.env```. This is an environment variable file that holds some essential data.
   ```bash
   PORT=5500
   DB_URI_DEV=mongodb://127.0.0.1:27017/user-drive
@@ -34,4 +33,3 @@ At the very first step, clone this repository to your system and after that foll
 ## 🙌 Contact Me
 [<img height="32" width="32" src="https://cdn.simpleicons.org/linkedin" />](https://www.linkedin.com/in/vivek-vaish-bb5803257/)&nbsp;&nbsp;&nbsp;&nbsp;
 [<img height="32" width="32" src="https://cdn.simpleicons.org/instagram" />](https://www.instagram.com/v.codr/)&nbsp;&nbsp;&nbsp;&nbsp;
-[<img height="32" width="32" src="https://cdn.simpleicons.org/mail.ru" />](https://vivekv634.github.io/Portfolio/)&nbsp;&nbsp;&nbsp;&nbsp;
